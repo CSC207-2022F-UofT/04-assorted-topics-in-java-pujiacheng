@@ -44,6 +44,14 @@ class DrivableMap {
      * You may want to use drivable_map.keys() or drivable_map.values() to
      * iterate through drivable_map.
      */
+    public boolean hasFasterThan(int speed) {
+        for (String item : this.drivable_map.keySet()) {
+            if (this.drivable_map.get(item).getMaxSpeed() >= speed) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 
@@ -53,6 +61,15 @@ class DrivableMap {
      *       returns a List containing all of the Tradable items in
      *       drivable_map.
      */
+    public ArrayList<Tradable> getTradable() {
+        ArrayList<Tradable> a = new ArrayList<Tradable>();
+        for (String item : this.drivable_map.keySet()) {
+            if (this.drivable_map.get(item) instanceof Tradable) {
+                a.add((Tradable) this.drivable_map.get(item));
+            }
+        }
+        return a;
+    }
 
 
 
